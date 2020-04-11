@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -35,6 +35,8 @@ public class Dropdown_48 extends TestBase {
         adultNumber.get(3).click();
         System.out.println("adult.getText() = " + adult.getText());
     }
+
+
 
     @Test
     public void dropdown_dynamic() throws InterruptedException {
@@ -85,5 +87,28 @@ public class Dropdown_48 extends TestBase {
             placeHolder.sendKeys(Keys.ARROW_DOWN);
             System.out.println("placeHolder.getAttribute(\"value\") = " + placeHolder.getAttribute("value"));
         }
+
+    }
+
+    //Below are to check annotations
+
+    @BeforeMethod
+    public void beforemethod(){
+        System.out.println("I run before each and every test in the class");
+    }
+
+    @BeforeTest
+    public void beforeTest(){
+        System.out.println("I run before every test in XML file, don't confuse with @BeforeMethod");
+    }
+
+    @BeforeClass
+    public void beforeClass(){
+        System.out.println("I run firstly and once before every tests in a class");
+    }
+
+    @BeforeSuite
+    public void BeforeSuit(){
+        System.out.println("I run before all tests, classes and packages");
     }
 }

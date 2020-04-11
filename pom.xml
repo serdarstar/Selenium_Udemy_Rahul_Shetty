@@ -7,6 +7,48 @@
     <groupId>org.example</groupId>
     <artifactId>bookit_cocumber_BDD_Self_Practice</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <!--Profiles ile command linedan hangi xml dosyasini calisitiracgimizi belirleyebiliriz.Bu Jenkins kullanirken onemli.
+    Bu projede iki xml olusturdum, biri smoke bir regression. Ikisi icin ayri profilelar olusuturup terminalden  >mvn test -PSmoke dersem
+    smoke.xml i calsitirir
+    -->
+    <profiles>
+        <profile>
+            <id>Regression</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>2.22.2</version>
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>regression.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>Smoke</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>2.22.2</version>
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>smoke.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+    </profiles>
     <build>
         <plugins>
             <plugin>
@@ -17,7 +59,7 @@
                     <target>8</target>
                 </configuration>
             </plugin>
-        </plugins>
+       </plugins>
     </build>
 
     <dependencies>
@@ -31,12 +73,6 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
-        </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.1.0</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.github.bonigarcia</groupId>

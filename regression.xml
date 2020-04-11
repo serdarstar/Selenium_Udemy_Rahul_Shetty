@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Udemy Regression Suite" parallel="tests" thread-count="3">
+<!-- For parallel execution, use the code above. This will make parallel execution at suite level.
+You can also define same parameters at class level.
+Here, based on needs, there are several test execution design. You can comment out/in each of them.
+-->
+
+<!--    <test name="Regression test">-->
+<!--        <packages>-->
+<!--            <package name="Tests2"/>-->
+<!--        </packages>-->
+<!--    </test>-->
+
+<!--    <test name="Alerts" parallel="classes" thread-count="2">-->
+<!--        for parallel execution from xml file-->
+<!--        <classes>-->
+<!--            <class name="Tests._82_Actions"/>-->
+<!--            <class name="Tests._63_AlertsTest">-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+<!--    <test name="Excluding by test name">-->
+<!--        <classes>-->
+<!--            <class name="Tests.Dropdown_48">-->
+<!--                <methods>-->
+<!--                    <exclude name="Auto.*"></exclude>-->
+<!--                    bu sekilde yazarak Test isminde Auto dan sonra her ne olursa olsun bisey olan testler exclude edilir-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+    <test name="Class Level" parallel="classes" thread-count="3">
+       <classes>
+           <class name="Tests._86_iFrames"></class>
+           <class name="Tests2.Alerts_63"></class>
+       </classes>
+    </test>
+
+</suite>

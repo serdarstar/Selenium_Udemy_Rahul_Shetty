@@ -16,6 +16,7 @@ public class _98_How_to_handle_table_grids extends TestBase{
         WebElement table=driver.findElement(By.xpath("//div[@id='innings_1']/div[1]"));
         System.out.println(table.findElements(By.xpath("//div[@id='innings_1']/div[1]/div/div[2]")).size());
         List<WebElement> tableList= driver.findElements(By.xpath("//div[@id='innings_1']/div[1]/div/div[3]"));
+
         List<String> tableListString=new ArrayList<>();
         for (int i = 1; i < tableList.size()-2; i++) {
             System.out.println(tableList.get(i).getText());

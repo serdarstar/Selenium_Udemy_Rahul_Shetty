@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Udemy Regression Suite">
+
+    <!-- In this class, there are multiple cases but only the cases with "smoke" attribute will run
+        Secondly, as we defined Listener parameters here, it will implement all the methods in Listeners class I created.
+        I can design everything in Listeners class. But, in order to get Listener results, you should run with XML runner, not from class
+    -->
+    <listeners>
+        <listener class-name="Tests._148_Listeners"></listener>
+    </listeners>
+    <test name="Test1">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Tests2.Dropdown_48"/>
+        </classes>
+    </test>
+</suite>
